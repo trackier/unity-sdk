@@ -7,7 +7,7 @@ namespace com.trackier.sdk
   {
     #if UNITY_ANDROID
     public class TrackierAndroid {
-	    public static void Start(String appToken, String environment) {
+	    public static void Start(string appToken, string environment) {
 		try {
 		 AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		 AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
