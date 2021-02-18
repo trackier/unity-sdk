@@ -6,6 +6,7 @@ namespace com.trackier.sdk
 {
     public class TrackierUnity : MonoBehaviour
     {
+        public string AppToken = "";
         void Awake()
         {
             if (IsEditor())
@@ -13,7 +14,7 @@ namespace com.trackier.sdk
                 return;
             }
 
-            TrackierUnity.start("c814db62-c196-4505-bc8b-46fa8e37f688");
+            TrackierUnity.start(this.AppToken);
         }
 
         public static void start(String appToken)
@@ -28,7 +29,7 @@ namespace com.trackier.sdk
 #endif
         }
 
-        public static void EventTrack(String EventID, TrackEvent trackEvent)
+        public static void TrackEvent(TrackierEvent te)
         {
             if (IsEditor())
             {
@@ -36,14 +37,13 @@ namespace com.trackier.sdk
             }
 
 #if UNITY_ANDROID
-			TrackierAndroid.EventTrack(EventID,trackEvent);
+			TrackierAndroid.TrackEvent(te);
 #endif
         }
 
         private static bool IsEditor()
         {
 #if UNITY_EDITOR
-			//Debug.Log("errorMsgEditor");
 			return true;
 #else
             return false;

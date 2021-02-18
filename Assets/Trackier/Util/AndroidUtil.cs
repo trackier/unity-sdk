@@ -15,7 +15,6 @@ public class AndroidUtil
         object[] args = new object[2];
         foreach (KeyValuePair<string, object> kvp in parameters)
         {
-
             using (AndroidJavaObject k = new AndroidJavaObject(
                 "java.lang.String", kvp.Key))
             {
