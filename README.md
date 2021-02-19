@@ -36,15 +36,14 @@ In android studio,
  
         	 implementation 'com.trackier:android-sdk:1.0.1’
  
-dependencies {
-	implementation project(':unityLibrary')
-	implementation 'com.trackier:android-sdk:1.0.1'
-	}
+        dependencies {
+	 implementation project(':unityLibrary')
+	 implementation 'com.trackier:android-sdk:1.0.1'
+	 }
  
  
  
 2. 	Add the following permission in Manifest file,
- 
  
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
