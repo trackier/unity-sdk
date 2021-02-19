@@ -21,6 +21,7 @@ In the following line add your app_token.
   TrackierUnity.start(this.appToken); 
  
 TrackEvent :-
+
   <CODE LEFT>
  
  
@@ -33,11 +34,10 @@ TrackEvent :-
  
         implementation 'com.trackier:android-sdk:1.0.1'
 	
-        dependencies{
-	 implementation project(':unityLibrary')
-	 implementation 'com.trackier:android-sdk:1.0.1'
-	 }
- 
+         dependencies{
+	     implementation project(':unityLibrary')
+	     implementation 'com.trackier:android-sdk:1.0.1'
+	   }
  
  
 2. 	Add the following permission in Manifest file
@@ -45,8 +45,6 @@ TrackEvent :-
 	    <uses-permission android:name="android.permission.INTERNET" />
 	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
- 
-
  
  
  
