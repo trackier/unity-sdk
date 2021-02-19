@@ -20,34 +20,31 @@ In the following line add your app_token.
  
   TrackierUnity.start(this.appToken); 
  
- 
 TrackEvent :-
- 
- 
   <CODE LEFT>
  
  
-·   	Upon successfully initializing sdk and tracking events export the whole project as Android Studio Projects and open the project in android studio.
+ Upon successfully initializing sdk and tracking events export the whole project as Android Studio Projects and open the project in android studio.
  
  
-In android studio,
+ In android studio,
  
-1. 	Add the following dependencies in app_level gradle , example here in my structure its Module: appName.launcer
+ 1.Add the following dependencies in app_level gradle , example here in my structure its Module: appName.launcer
  
         implementation 'com.trackier:android-sdk:1.0.1'
 	
-       dependencies{
+        dependencies{
 	 implementation project(':unityLibrary')
 	 implementation 'com.trackier:android-sdk:1.0.1'
 	 }
  
  
  
-2. 	Add the following permission in Manifest file,
- 
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+2. 	Add the following permission in Manifest file
+
+	    <uses-permission android:name="android.permission.INTERNET" />
+	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
  
 
  
