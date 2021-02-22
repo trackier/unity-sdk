@@ -8,7 +8,7 @@ As of version 1.0.1 you can add Trackier SDK from Unity Asset Store to your app.
 Add the SDK to your project
 Open your project in the Unity Editor, go to Assets → Import Package → Custom Package and select the downloaded Unity package file.
  
-<IMAGE>
+![unity](https://user-images.githubusercontent.com/34488320/108677807-34c22f80-7510-11eb-804b-c4795633fd23.jpg)
  
  
 Integrate the SDK into your app
