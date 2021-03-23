@@ -39,6 +39,7 @@ namespace com.trackier.sdk
 		         TrackEventClass.Set("param8",te.param8);
 		         TrackEventClass.Set("param9",te.param9);
 		         TrackEventClass.Set("param10",te.param10);
+				// TrackEventClass.Set("ev",AndroidUtils.CreateJavaMapFromDictainary(te.eventValues));
 		         trackierSDK.CallStatic("trackEvent",TrackEventClass);
 		        }
 		    catch (System.Exception e)
