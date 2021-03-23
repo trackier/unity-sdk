@@ -3,7 +3,7 @@ Getting started
 To integrate the Trackier SDK into your Unity project, follow these steps.
 
 Get the SDK
-As of version 1.0.1 you can add Trackier SDK from Unity Asset Store to your app. Alternatively, you can download the latest version from our releases page.
+As of version 1.0.1 you can download the latest version from our [releases page](https://github.com/trackier/unity-sdk/releases).
 
 Add the SDK to your project
 Open your project in the Unity Editor, go to Assets → Import Package → Custom Package and select the downloaded Unity package file.
@@ -32,11 +32,11 @@ TrackEvent :-
  
  1.Add the following dependencies in app_level gradle , example here in my structure its Module: appName.launcer
  
-        implementation 'com.trackier:android-sdk:1.0.1'
+        implementation 'com.trackier:android-sdk:1.0.5'
 	
          dependencies{
 	     implementation project(':unityLibrary')
-	     implementation 'com.trackier:android-sdk:1.0.1'
+	     implementation 'com.trackier:android-sdk:1.0.5'
 	   }
  
  
