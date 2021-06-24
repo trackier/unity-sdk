@@ -39,42 +39,14 @@ namespace com.trackier.sdk
 		         TrackEventClass.Set("param8",te.param8);
 		         TrackEventClass.Set("param9",te.param9);
 		         TrackEventClass.Set("param10",te.param10);
-				// TrackEventClass.Set("ev",CreateJavaMapFromDictainary(te.eventValues));
+				// TrackEventClass.Set("ev",AndroidUtils.CreateJavaMapFromDictainary(te.eventValues));
 		         trackierSDK.CallStatic("trackEvent",TrackEventClass);
-				 Debug.Log("trackierSDK.CallStatic trackEvenT TrackEventClass");
 		        }
 		    catch (System.Exception e)
 		       {
 		         Debug.Log("System.Exception: "+e.Message);
 		       }
 	   }
-
-	   public static AndroidJavaObject CreateJavaMapFromDictainary(IDictionary<string, object> parameters)
-    {
-        AndroidJavaObject javaMap = new AndroidJavaObject("java.util.HashMap");
-        IntPtr putMethod = AndroidJNIHelper.GetMethodID(
-            javaMap.GetRawClass(), "put",
-                "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
-
-        object[] args = new object[2];
-        foreach (KeyValuePair<string, object> kvp in parameters)
-        {
-            using (AndroidJavaObject k = new AndroidJavaObject(
-                "java.lang.String", kvp.Key))
-            {
-                using (AndroidJavaObject v = new AndroidJavaObject(
-                    "java.lang.String", kvp.Value))
-                {
-                    args[0] = k;
-                    args[1] = v;
-                    AndroidJNI.CallObjectMethod(javaMap.GetRawObject(),
-                            putMethod, AndroidJNIHelper.CreateJNIArgArray(args));
-                }
-            }
-        }
-
-        return javaMap;
-    }
 	}
   #endif 
 }

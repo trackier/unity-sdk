@@ -27,9 +27,16 @@ namespace com.trackier.sdk
 
            #if UNITY_ANDROID
 
-		       TrackierAndroid.Start(appToken, "");
+		        TrackierAndroid.Start(appToken, "");  
 
            #endif
+
+		   #if UNITY_IOS && !UNITY_EDITOR
+
+				Swift.CallSwiftMethod (appToken);
+
+		   #endif
+
 		}
 
 		public static void TrackEvent(TrackierEvent te)

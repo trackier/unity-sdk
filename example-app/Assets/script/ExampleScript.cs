@@ -24,11 +24,11 @@ namespace com.trackier.sdk
 
         void TaskOnClick()
         {
-            Debug.Log("You have clicked the button!");
-            TrackierEvent te = new TrackierEvent(TrackierEvent.UPDATE);
-            te.param1 = "MY Param";
-            TrackierUnity.TrackEvent(te);
-            Debug.Log(" TrackierUnity.TrackEvent te");
+            // Debug.Log("You have clicked the button!");
+            // TrackierEvent te = new TrackierEvent(TrackierEvent.UPDATE);
+            // te.param1 = "MY Param";
+            // TrackierUnity.TrackEvent(te);
+            // Debug.Log(" TrackierUnity.TrackEvent te");
         }
 
         // Update is called once per frame
