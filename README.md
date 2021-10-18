@@ -21,7 +21,7 @@ In the following line add your app_token.
   	using com.trackier.sdk;
   
   
- 	TrackierUnity.start(this.appToken); 
+ 	TrackierUnity.start("xxxx-xx-4505-bc8b-xx"); 
  
 TrackEvent :-
 
