@@ -36,7 +36,7 @@ TrackEvent :-
 	
          dependencies{
 	     implementation project(':unityLibrary')
-	     implementation 'com.trackier:android-sdk:1.0.5'
+	     implementation 'com.trackier:android-sdk:1.6.12'
 	   }
  
  
