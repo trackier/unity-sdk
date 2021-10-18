@@ -18,10 +18,10 @@ After importing package successfully, you would be seeing a Trackier named folde
  
 In the following line add your app_token.
 
-  using com.trackier.sdk;
-  .
-  .
-  TrackierUnity.start(this.appToken); 
+  	using com.trackier.sdk;
+  
+  
+ 	TrackierUnity.start(this.appToken); 
  
 TrackEvent :-
 
