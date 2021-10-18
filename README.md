@@ -17,12 +17,17 @@ Initialize Trackier SDK :-
 After importing package successfully, you would be seeing a Trackier named folder in which you will find Trackier.cs file.
  
 In the following line add your app_token.
- 
+
+  using com.trackier.sdk;
+  .
+  .
   TrackierUnity.start(this.appToken); 
  
 TrackEvent :-
 
-  <CODE LEFT>
+       TrackierEvent trackierEvent = new TrackierEvent("eventId");
+       trackierEvent.param1 = "param";
+       TrackierUnity.trackierEvent(trackierEvent);
  
  
  Upon successfully initializing sdk and tracking events export the whole project as Android Studio Projects and open the project in android studio.
