@@ -37,8 +37,7 @@ TrackEvent :-
  
  1.Add the following dependencies in app_level gradle , example here in my structure its Module: appName.launcer
  
-        implementation 'com.trackier:android-sdk:1.0.5'
-	
+       
          dependencies{
 	     implementation project(':unityLibrary')
 	     implementation 'com.trackier:android-sdk:1.6.12'
