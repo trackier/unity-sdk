@@ -11,7 +11,14 @@ namespace com.sampleapp
         void Start()
         {
 
-            TrackierUnity.start("");
+            /* Initialize sdk */
+            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+
+ 
+            /* Event Track */
+            TrackierEvent trackierEvent = new TrackierEvent("eventId");
+            trackierEvent.param1 = "param";
+            TrackierUnity.trackierEvent(trackierEvent);
 
         }
 
