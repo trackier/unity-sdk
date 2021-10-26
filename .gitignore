@@ -7,9 +7,8 @@ Marketplace
 Explore
  
 @prak24oct 
-adjust
 /
-unity_sdk
+unity-sdk
 45
 74
 43
@@ -220,7 +219,7 @@ Thumbs.db
 *.orig
 
 # ==================== #
-# Adjust SDK generated #
+# Trackier SDK generated #
 # ==================== #
 *.pyc*
 AndroidManifest.xml*
