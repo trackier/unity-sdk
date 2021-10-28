@@ -18,37 +18,28 @@ After importing package successfully, you would be seeing a Trackier named folde
  
 In the following line add your app_token.
 
-  	using com.trackier.sdk;
-  
-  
- 	TrackierUnity.start("xxxx-xx-4505-bc8b-xx"); 
+		using com.trackier.sdk;
+
+
+		TrackierUnity.start("xxxx-xx-4505-bc8b-xx"); 
  
 TrackEvent :-
 
-       TrackierEvent trackierEvent = new TrackierEvent("eventId");
-       trackierEvent.param1 = "param";
-       TrackierUnity.trackierEvent(trackierEvent);
- 
- 
- Upon successfully initializing sdk and tracking events export the whole project as Android Studio Projects and open the project in android studio.
- 
- 
- In android studio,
- 
- 1.Add the following dependencies in app_level gradle , example here in my structure its Module: appName.launcer
- 
+	       TrackierEvent trackierEvent = new TrackierEvent("eventId");
+	       trackierEvent.param1 = "param";
+	       TrackierUnity.trackierEvent(trackierEvent);
        
-         dependencies{
-	     implementation project(':unityLibrary')
-	     implementation 'com.trackier:android-sdk:1.6.12'
-	   }
- 
- 
-2. 	Add the following permission in Manifest file
+Add custom params with event :- 
 
-	    <uses-permission android:name="android.permission.INTERNET" />
-	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+		IDictionary<int, string> eventCustomParams = new Dictionary<int, string>();
+		numberNames.Add(customParam1,XXXXX); 
+		numberNames.Add(customParam2,XXXXX);
+
+		trackierEvent.ev = eventCustomParams;
+		TrackierUnity.trackierEvent(trackierEvent);
+	
+ 
+
  
  
  
