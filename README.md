@@ -31,7 +31,7 @@ TrackEvent :-
        
 Add custom params with event :- 
 
-		IDictionary<int, string> eventCustomParams = new Dictionary<int, string>();
+		IDictionary<int, object> eventCustomParams = new Dictionary<int, object>();
 		numberNames.Add(customParam1,XXXXX); 
 		numberNames.Add(customParam2,XXXXX);
 
