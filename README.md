@@ -27,7 +27,7 @@ TrackEvent :-
 
 	       TrackierEvent trackierEvent = new TrackierEvent("eventId");
 	       trackierEvent.param1 = "param";
-	       TrackierUnity.trackierEvent(trackierEvent);
+	       TrackierUnity.TrackEvent(trackierEvent);
        
 Add custom params with event :- 
 
@@ -36,7 +36,7 @@ Add custom params with event :-
 		numberNames.Add(customParam2,XXXXX);
 
 		trackierEvent.ev = eventCustomParams;
-		TrackierUnity.trackierEvent(trackierEvent);
+		TrackierUnity.TrackEvent(trackierEvent);
 	
  
 
