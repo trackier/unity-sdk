@@ -8,7 +8,7 @@
   - [Add Unity SDK to your app ](#qs-add-sdk)
   - [Update Pod Dependencies](#qs-pod-update)
 - [Integrate and Initialize the Trackier SDK](#qs-implement-trackier-sdk)
-  - [Retrieve your dev key](#qs-retrieve-dev-key)
+  - [Retrieve your SDK key](#qs-retrieve-dev-key)
   - [Initialize the SDK](#qs-initialize-trackier-sdk)
 - [Events Tracking](#qs-track-event)
   - [Retrieve Event Id from dashboard](#qs-retrieve-event-id)
@@ -82,10 +82,10 @@ namespace com.sampleapp
         // Start is called before the first frame update
         void Start()
         {
-            /*While Initializing the Sdk, You need to pass the two arguments in the TrackierSDKConfig.
+            /*While Initializing the SDK, You need to pass the two arguments in the TrackierSDKConfig.
             you need to pass the Trackier SDK api key in the argument */
 
-            /* Initialize sdk */
+            /* Initialize SDK */
             TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
         }
 
@@ -107,7 +107,7 @@ Screenshot[2]
 ## <a id="qs-track-event"></a>Events Tracking
 
 <a id="qs-retrieve-event-id"></a>Trackier events trackings enable to provides the insights into how to user interacts with your app. 
-Trackier sdk easily get that insights data from the app. Just follow with the simple events integration process
+Trackier SDK easily get that insights data from the app. Just follow with the simple events integration process
 
 Trackier provides the `Built-in events` and `Customs events` on the Trackier panel.
 
@@ -138,10 +138,10 @@ Screenshot[3]
         // Start is called before the first frame update
         void Start()
         {
-            /*While Initializing the Sdk, You need to pass the two arguments in the TrackierSDKConfig.
+            /*While Initializing the SDK, You need to pass the two arguments in the TrackierSDKConfig.
             you need to pass the Trackier SDK api key in the argument */
 
-            /* Initialize sdk */
+            /* Initialize SDK */
             TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
 
             /* Event Track */
@@ -199,10 +199,10 @@ Screenshot[5]
         // Start is called before the first frame update
         void Start()
         {
-            /*While Initializing the Sdk, You need to pass the two arguments in the TrackierSDKConfig.
+            /*While Initializing the SDK, You need to pass the two arguments in the TrackierSDKConfig.
             you need to pass the Trackier SDK api key in the argument */
 
-            /* Initialize sdk */
+            /* Initialize SDK */
             TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
 
             /* Event Track */
@@ -245,10 +245,10 @@ Trackier allow user to pass the revenue data which is generated from the app thr
         // Start is called before the first frame update
         void Start()
         {
-            /*While Initializing the Sdk, You need to pass the two arguments in the TrackierSDKConfig.
+            /*While Initializing the SDK, You need to pass the two arguments in the TrackierSDKConfig.
             you need to pass the Trackier SDK api key in the argument */
 
-            /* Initialize sdk */
+            /* Initialize SDK */
             TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
 
             /* Event Track */
