@@ -41,11 +41,11 @@ Open your project in the Unity Editor, go to Assets → Import Package → Custo
  
 ### <a id="qs-implement-trackier-sdk"></a>Integrate and Initialize the Trackier SDK
 
-### <a id="qs-retrieve-dev-key"></a>Retrieve your dev key
+### <a id="qs-retrieve-dev-key"></a>Retrieve your SDK key
 
-For initialising the Trackier SDk. First, We need to generate the Sdk key from the Trackier MMP panel.
+For initialising the Trackier SDK. First, We need to generate the SDK key from the Trackier MMP panel.
 
-Following below are the steps to retrieve the development key:-
+Following below are the steps to retrieve the SDK key:-
 
 - Login your Trackier Panel
 - Select your application and click on Action button and login as
