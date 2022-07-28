@@ -1,5 +1,33 @@
 # unity-sdk
-Getting started
+
+## Table of Content
+
+### Integration
+
+- [Quick start guide](#qs-add-trackier-sdk)
+  - [Add Unity SDK to your app ](#qs-add-sdk)
+  - [Update Pod Dependencies](#qs-pod-update)
+- [Integrate and Initialize the Trackier SDK](#qs-implement-trackier-sdk)
+  - [Retrieve your dev key](#qs-retrieve-dev-key)
+  - [Initialize the SDK](#qs-initialize-trackier-sdk)
+- [Events Tracking](#qs-track-event)
+  - [Retrieve Event Id from dashboard](#qs-retrieve-event-id)
+  - [Built-in Events](#qs-built-in)
+  - [Customs Events](#qs-customs-events)
+  - [Revenue Event Tracking](#qs-track-event-with-currencey)
+  - [Pass the custom params in events](#qs-add-custom-parms-event)
+  - [Passing User Data to SDK](#qs-add-user-data) 
+
+## <a id="qs-add-trackier-sdk"></a>Quick start guide
+
+We have created a example app for the Unity SDK integration. 
+
+Please check the [Example](https://github.com/trackier/flutter-sdk/tree/master/example) directory for know to how the `Trackier SDK` can be integrated.
+
+### <a id="qs-add-sdk"></a>Add Unity SDK to your app
+
+Unity SDK is very easy to integrate in your app. Just need to follow some steps
+
 To integrate the Trackier SDK into your Unity project, follow these steps.
 
 Get the SDK
@@ -8,8 +36,30 @@ As of version 1.0.1 you can download the latest version from our [releases page]
 Add the SDK to your project
 Open your project in the Unity Editor, go to Assets → Import Package → Custom Package and select the downloaded Unity package file.
  
-![unity](https://user-images.githubusercontent.com/34488320/108677807-34c22f80-7510-11eb-804b-c4795633fd23.jpg)
+<img width="1000" alt="Screenshot 2022-06-10 at 3 46 48 PM" src="https://user-images.githubusercontent.com/34488320/108677807-34c22f80-7510-11eb-804b-c4795633fd23.jpg">
+
  
+### <a id="qs-implement-trackier-sdk"></a>Integrate and Initialize the Trackier SDK
+
+### <a id="qs-retrieve-dev-key"></a>Retrieve your dev key
+
+For initialising the Trackier SDk. First, We need to generate the Sdk key from the Trackier MMP panel.
+
+Following below are the steps to retrieve the development key:-
+
+- Login your Trackier Panel
+- Select your application and click on Action button and login as
+- In the Dashboard, Click on the` SDK Integration` option on the left side of panel. 
+- under on the SDK Integration, You will be get the SDK Key.
+
+After follow all steps, Your SDK key look like the below screenshot
+
+Screenshot[1]
+
+<img width="1000" alt="Screenshot 2022-06-10 at 3 46 48 PM" src="https://user-images.githubusercontent.com/16884982/173044860-a540706c-ad10-4174-aaf0-7cf9290fc949.png">
+
+### <a id="qs-initialize-trackier-sdk"></a>Integrate the Trackier SDK in the Unity Application.
+
  
 Integrate the SDK into your app
 
@@ -18,50 +68,225 @@ After importing package successfully, you would be seeing a Trackier named folde
  
 In the following line add your app_token.
 
-		using com.trackier.sdk;
+```c#
 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using com.trackier.sdk;
 
-		TrackierUnity.start("xxxx-xx-4505-bc8b-xx"); 
+namespace com.sampleapp
+{
+    public class Script : MonoBehaviour
+    {
+        // Start is called before the first frame update
+        void Start()
+        {
+            /*While Initializing the Sdk, You need to pass the two arguments in the TrackierSDKConfig.
+            you need to pass the Trackier SDK api key in the argument */
+
+            /* Initialize sdk */
+            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
+}
+
+```
+
+Screenshot[2]
+
+<img width="1000" alt="Screenshot 2022-07-28 at 9 33 39 AM" src="https://user-images.githubusercontent.com/16884982/181418407-06d38609-6794-4f73-a131-ae5e82df6bc5.png">
+
  
-TrackEvent :-
+## <a id="qs-track-event"></a>Events Tracking
 
-	       TrackierEvent trackierEvent = new TrackierEvent("eventId");
-	       trackierEvent.param1 = "param";
-	       TrackierUnity.TrackEvent(trackierEvent);
+<a id="qs-retrieve-event-id"></a>Trackier events trackings enable to provides the insights into how to user interacts with your app. 
+Trackier sdk easily get that insights data from the app. Just follow with the simple events integration process
+
+Trackier provides the `Built-in events` and `Customs events` on the Trackier panel.
+
+####  <a id="qs-built-in"></a> **Built-in Events** - 
+
+Predefined events are the list of constants events which already been created on the dashboard. 
+
+You can use directly to track those events. Just need to implements events in the app projects.
+
+Screenshot[3]
+
+<img width="1000" alt="Screenshot 2022-06-10 at 1 23 01 PM" src="https://user-images.githubusercontent.com/16884982/173018185-3356c117-8b9f-46d1-bfd5-c41653f9ac9e.png">
+
+### Example code for calling Built-in events
+```c#
+  /*
+ * Event Tracking
+  <------------->
+ * The below code is the example to pass a event to the Trackier SDK.
+ * This event requires only 1 Parameter which is the Event ID.
+ * Below are the example of built-in events function calling
+ * The arguments - "TrackierEvent.LOGIN" passed in the Trackier event class is Events id
+ *
+ */
+
+ public class Script : MonoBehaviour
+    {
+        // Start is called before the first frame update
+        void Start()
+        {
+            /*While Initializing the Sdk, You need to pass the two arguments in the TrackierSDKConfig.
+            you need to pass the Trackier SDK api key in the argument */
+
+            /* Initialize sdk */
+            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+
+            /* Event Track */
+             /*
+            * Event Tracking
+            <------------->
+            * The below code is the example to pass a event to the Trackier SDK.
+            * This event requires only 1 Parameter which is the Event ID.
+            * Below are the example of built-in events function calling
+            * The arguments - "sEMWSCTXeu" passed in the Trackier event class is Events id
+            */
+            TrackierEvent trackierEvent = new TrackierEvent("sEMWSCTXeu"); //pass your eventid here
+            trackierEvent.param1 = "param";
+            TrackierUnity.trackierEvent(trackierEvent);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
+
+```
+
+Note:- Argument in Trackier event class is event Id.
+
+You can integrate inbuilt params with the event. In-built param list are mentioned below:-
+
+orderId, revenue, currency, param1, param2, param3 ,param4, param5, param6, param7, param8, param9, param10.
+
+Below are the screenshot of following example
+
+Screenshot[4]
+
+
+
+
+#### <a id="qs-customs-events"></a> **Customs Events** - 
+
+Customs events are created by user as per their required business logic. 
+
+You can create the events in the Trackier dashboard and integrate those events in the app project.
+
+Screenshot[5]
+
+<img width="1000" alt="Screenshot 2022-06-29 at 4 09 37 PM" src="https://user-images.githubusercontent.com/16884982/176417552-a8c80137-aa1d-480a-81a3-ea1e03172868.png">
+
+#### Example code for calling Customs Events.
+
+```c#
+
+ public class Script : MonoBehaviour
+    {
+        // Start is called before the first frame update
+        void Start()
+        {
+            /*While Initializing the Sdk, You need to pass the two arguments in the TrackierSDKConfig.
+            you need to pass the Trackier SDK api key in the argument */
+
+            /* Initialize sdk */
+            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+
+            /* Event Track */
+             /*
+            * Event Tracking
+            <------------->
+            * The below code is the example to pass a event to the Trackier SDK.
+            * This event requires only 1 Parameter which is the Event ID.
+            * Below are the example of built-in events function calling
+            * The arguments - "sEMWSCTXeu" passed in the Trackier event class is Events id
+            */
+            TrackierEvent trackierEvent = new TrackierEvent("sEMWSCTXeu"); //pass your eventid here
+            trackierEvent.param1 = "param";
+            TrackierUnity.trackierEvent(trackierEvent);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
+
+```
+Below are the screenshot of above code snippet
+
+Screenshot[6]
+
+<img width="1000" alt="Screenshot 2022-07-28 at 9 54 36 AM" src="https://user-images.githubusercontent.com/16884982/181420054-2bc86669-ea5a-48ca-9727-b84cc956914d.png">
+
+
+### <a id="qs-track-event-with-currencey"></a>Revenue Event Tracking
+
+Trackier allow user to pass the revenue data which is generated from the app through Revenue events. It is mainly used to keeping record of generating revenue from the app and also you can pass currency as well.
+
+```c#
+    
+    public class Script : MonoBehaviour
+    {
+        // Start is called before the first frame update
+        void Start()
+        {
+            /*While Initializing the Sdk, You need to pass the two arguments in the TrackierSDKConfig.
+            you need to pass the Trackier SDK api key in the argument */
+
+            /* Initialize sdk */
+            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+
+            /* Event Track */
+             /*
+            * Event Tracking
+            <------------->
+            * The below code is the example to pass a event to the Trackier SDK.
+            * This event requires only 1 Parameter which is the Event ID.
+            * Below are the example of built-in events function calling
+            * The arguments - "sEMWSCTXeu" passed in the Trackier event class is Events id
+            */
+            TrackierEvent trackierEvent = new TrackierEvent("sEMWSCTXeu"); //pass your eventid here
+            trackierEvent.param1 = "param";
+            trackierEvent.revenue = 8.0; //pass your revenue here
+            trackierEvent.currency = "Inr"; //pass your currency here
+            TrackierUnity.trackierEvent(trackierEvent);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
+
+```
        
-Add custom params with event :- 
+### <a id="qs-add-custom-parms-event"></a>Pass the custom params in events
 
-		IDictionary<int, object> eventCustomParams = new Dictionary<int, object>();
-		numberNames.Add(customParam1,XXXXX); 
-		numberNames.Add(customParam2,XXXXX);
+```c#
 
-		trackierEvent.ev = eventCustomParams;
-		TrackierUnity.TrackEvent(trackierEvent);
+IDictionary<int, object> eventCustomParams = new Dictionary<int, object>();
+numberNames.Add(customParam1,XXXXX); 
+numberNames.Add(customParam2,XXXXX);
+trackierEvent.ev = eventCustomParams;
+TrackierUnity.TrackEvent(trackierEvent);
 	
+```
  
 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-
