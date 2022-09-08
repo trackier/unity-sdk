@@ -15,7 +15,11 @@ namespace com.trackier.sdk
 		          AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 		          AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
 		          AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig",context,appToken,environment);
-		          trackierSDK.CallStatic("initialize",trackierSDKConfig);
+		          trackierSDKConfig.Call("setSDKVersion","1.6.29");
+				  trackierSDKConfig.Call("setSDKType","unity_android_sdk");
+				  trackierSDK.CallStatic("initialize",trackierSDKConfig);
+				  trackierSDK.CallStatic("setUserPhone","9999999");
+				  trackierSDK.CallStatic("setUserName","test");
 		        }
 		    catch(System.Exception e)
 		        {
