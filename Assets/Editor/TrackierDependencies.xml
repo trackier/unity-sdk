@@ -1,5 +1,5 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="com.trackier:android-sdk:1.6.12"/>
+        <androidPackage spec="com.trackier:android-sdk:1.6.29"/>
     </androidPackages>
 </dependencies>
