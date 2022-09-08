@@ -8,9 +8,8 @@ public class mainScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     TrackierUnity.start("abcf2270-d94a-4364-a2ae-34903c6e1d53");
+     TrackierUnity.start("xxxx-d94a-4364-a2ae-xxxxxx");
         
- //abcf2270-d94a-4364-a2ae-34903c6e1d53 tictoctoe
             /* Event Track */
             TrackierEvent trackierEvent = new TrackierEvent("Q4YsqBKnzZ");
             trackierEvent.param1 = "param";
