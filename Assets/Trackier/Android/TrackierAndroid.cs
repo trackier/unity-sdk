@@ -18,10 +18,10 @@ public class TrackierAndroid
 			trackierSDKConfig.Call("setSDKVersion","1.6.29");
 			trackierSDKConfig.Call("setSDKType","unity_android_sdk");
 			trackierSDK.CallStatic("initialize",trackierSDKConfig);
-			}
-		catch(System.Exception e)	{
-				Debug.Log("System.Exception: "+e.Message);
-			}
+		}
+		catch(System.Exception e) {
+			Debug.Log("System.Exception: "+e.Message);
+		}
 	}
 	public static void setUserName(string userName){
 		try {
@@ -29,8 +29,7 @@ public class TrackierAndroid
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
 			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
 			trackierSDK.CallStatic("setUserName",userName);  
-		}
-		catch(System.Exception e){
+		} catch(System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
@@ -65,9 +64,9 @@ public class TrackierAndroid
 		// TrackEventClass.Set("ev",AndroidUtils.CreateJavaMapFromDictainary(te.eventValues));
 			trackierSDK.CallStatic("trackEvent",TrackEventClass);
 		}
-		catch (System.Exception e){
-				Debug.Log("System.Exception: "+e.Message);
-			}
+		catch (System.Exception e) {
+			Debug.Log("System.Exception: "+e.Message);
+		}
 	}
 }
 #endif
