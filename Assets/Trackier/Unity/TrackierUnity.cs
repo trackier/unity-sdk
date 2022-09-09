@@ -31,7 +31,32 @@ namespace com.trackier.sdk
 
            #endif
 		}
+				public static void setUserName(string userName)
+		{
+			if (IsEditor())
+			{
+				return;
+			}
 
+           #if UNITY_ANDROID
+
+		       TrackierAndroid.setUserName(userName);
+
+           #endif
+		}
+        public static void setUserPhone(string userPhone)
+		{
+			if (IsEditor())
+			{
+				return;
+			}
+
+           #if UNITY_ANDROID
+
+		       TrackierAndroid.setUserPhone(userPhone);
+
+           #endif
+		}
 		public static void TrackEvent(TrackierEvent te)
 		{
 			if (IsEditor())
