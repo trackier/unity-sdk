@@ -15,7 +15,7 @@ namespace com.trackier.sdk
 				return;
 			}
 
-		    TrackierUnity.start(this.AppToken);
+			TrackierUnity.start(this.AppToken);
 		}
 
 		public static void start(string appToken)
@@ -25,11 +25,33 @@ namespace com.trackier.sdk
 				return;
 			}
 
-           #if UNITY_ANDROID
+#if UNITY_ANDROID
+			TrackierAndroid.Start(appToken, "");
+#endif
+		}
 
-		       TrackierAndroid.Start(appToken, "");
+		public static void setUserName(string userName)
+		{
+			if (IsEditor())
+			{
+				return;
+			}
 
-           #endif
+#if UNITY_ANDROID
+			TrackierAndroid.setUserName(userName);
+#endif
+		}
+
+		public static void setUserPhone(string userPhone)
+		{
+			if (IsEditor())
+			{
+				return;
+			}
+
+#if UNITY_ANDROID
+			TrackierAndroid.setUserPhone(userPhone);
+#endif
 		}
 
 		public static void TrackEvent(TrackierEvent te)
@@ -39,24 +61,19 @@ namespace com.trackier.sdk
 				return;
 			}
 
-            #if UNITY_ANDROID
-
-		       TrackierAndroid.TrackEvent(te);
-
-            #endif
+#if UNITY_ANDROID
+			TrackierAndroid.TrackEvent(te);
+#endif
 		}
 		  
 		private static bool IsEditor()
 		{
-           #if UNITY_EDITOR
 
-		      return true;
-
-           #else
-
-		      return false;
-			  
-           #endif
+#if UNITY_EDITOR
+			return true;
+#else
+			return false;
+#endif
 		}
 	}
 }
