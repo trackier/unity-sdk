@@ -24,6 +24,7 @@ namespace com.trackier.sdk
         public Action<string> getDeferredDeeplinkDelegate()
         {
             UnityEngine.Debug.Log("getDeferredDeeplinkDelegate()");
+            return this.deferredDeeplinkDelegate;
         }
     }
 }
