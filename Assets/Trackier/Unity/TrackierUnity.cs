@@ -29,6 +29,20 @@ namespace com.trackier.sdk
 			TrackierAndroid.Start(appToken, "");
 #endif
 		}
+		
+		public static void initialize(TrackierConfig config)
+        {
+            if (IsEditor())
+            {
+                return;
+            }
+
+			#if UNITY_ANDROID
+
+            TrackierAndroid.initialize(config);
+
+			#endif
+        }
 
 		public static void setUserName(string userName)
 		{
