@@ -34,6 +34,7 @@ public class TrackierAndroid
             AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
             AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig", context, config.appToken, config.environment);
+			trackierSDKConfig.Call("setSDKVersion","1.6.30");
             deeplink = new DeferredDeeplinkListener(config.deferredDeeplinkDelegate);
             trackierSDKConfig.Call("setDeepLinkListener", deeplink);
             trackierSDK.CallStatic("initialize", trackierSDKConfig);
