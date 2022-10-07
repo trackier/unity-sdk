@@ -19,13 +19,11 @@ namespace com.trackier.sdk
         public void setDeferredDeeplinkDelegate(Action<string> deferredDeeplinkDelegate)
         {
             this.deferredDeeplinkDelegate = deferredDeeplinkDelegate;
-            UnityEngine.Debug.Log("setDeferredDeeplinkDelegate");
         }
 
         public Action<string> getDeferredDeeplinkDelegate()
         {
             UnityEngine.Debug.Log("getDeferredDeeplinkDelegate()");
-            return this.deferredDeeplinkDelegate;
         }
     }
 }

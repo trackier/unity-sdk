@@ -29,10 +29,10 @@ namespace com.trackier.sdk
 			TrackierAndroid.Start(appToken, "");
 #endif
 		}
-		
+
 		public static void initialize(TrackierConfig config)
         {
-            if (IsEditor())
+        	if (IsEditor())
             {
                 return;
             }
