@@ -6,7 +6,6 @@
 
 - [Quick start guide](#qs-add-trackier-sdk)
   - [Add Unity SDK to your app ](#qs-add-sdk)
-  - [Update Pod Dependencies](#qs-pod-update)
 - [Integrate and Initialize the Trackier SDK](#qs-implement-trackier-sdk)
   - [Retrieve your SDK key](#qs-retrieve-dev-key)
   - [Initialize the SDK](#qs-initialize-trackier-sdk)
@@ -16,7 +15,7 @@
   - [Customs Events](#qs-customs-events)
   - [Revenue Event Tracking](#qs-track-event-with-currencey)
   - [Pass the custom params in events](#qs-add-custom-parms-event)
-  - [Passing User Data to SDK](#qs-add-user-data) 
+- [Deeplinking](#qs-deeplink) 
 
 ## <a id="qs-add-trackier-sdk"></a>Quick start guide
 
@@ -287,6 +286,55 @@ trackierEvent.ev = eventCustomParams;
 TrackierUnity.TrackEvent(trackierEvent);
 	
 ```
- 
+ # Deeplinking 
 
- 
+Deep linking is a techniques in which the user directly redirect to the specific pages of the application by click on the deeplink url.
+
+### Deferred deep linking
+
+Deferred deep linking happened, when a user does not have your app installed on their device. When the user clicks a trackier URL, the URL will redirect them to the Play Store to download and install your app. When the user opens the app for the first time, the SDK will read the deeplink content.
+
+For get deeplink content information, set a callback method on the TrackierConfig object. This will receive the parameters where the content of the URL is delivered. Set this method on the config object by calling the method setDeferredDeeplinkDelegate:
+
+Below are the example of the code :-
+
+```c#
+using UnityEngine;
+using System.Collections;
+using com.trackier.sdk;
+using System;
+
+public class NewMonoBehaviour : MonoBehaviour
+{
+	// Use this for initialization
+	void Start()
+	{
+        TrackierConfig trackierConfig = new TrackierConfig("abcf2270-xxxxxxxxxx-34903c6e1d53", "development");
+        trackierConfig.setDeferredDeeplinkDelegate(DeferredDeeplinkCallback); // Pass for setting the deferred deeplinking 
+        TrackierUnity.initialize(trackierConfig);
+        Debug.Log("AppKey Initialized");
+
+    }
+
+	// Update is called once per frame
+	void Update()
+	{
+			
+	}
+
+    private void DeferredDeeplinkCallback(string deeplinkURL)
+    {
+        Debug.Log("Deferred deeplink reported!");
+
+        if (deeplinkURL != null)
+        {
+            Debug.Log("Deeplink URL: " + deeplinkURL); // Getting the deeplink url.
+        }
+        else
+        {
+            Debug.Log("Deeplink URL is null!");
+        }
+    }
+}
+
+``` 
