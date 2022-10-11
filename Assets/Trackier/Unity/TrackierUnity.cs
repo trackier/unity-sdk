@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +28,20 @@ namespace com.trackier.sdk
 #if UNITY_ANDROID
 			TrackierAndroid.Start(appToken, "");
 #endif
+		}
+
+		public static void initialize(TrackierConfig config)
+		{
+			if (IsEditor())
+			{
+				return;
+			}
+
+			#if UNITY_ANDROID
+
+			TrackierAndroid.initialize(config);
+
+			#endif
 		}
 
 		public static void setUserName(string userName)

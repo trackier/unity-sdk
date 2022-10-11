@@ -8,22 +8,63 @@ namespace com.trackier.sdk
 #if UNITY_ANDROID
 public class TrackierAndroid 
 {
-	public static void Start(string appToken, string environment) {
+	public static void Start(string appToken, string environment) 
+	{
 		try {
 			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
 			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 			AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
 			AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig",context,appToken,environment);
-			trackierSDKConfig.Call("setSDKVersion","1.6.29");
-			trackierSDKConfig.Call("setSDKType","unity_android_sdk");
+			trackierSDKConfig.Call("setSDKVersion", "1.6.30");
+			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
 			trackierSDK.CallStatic("initialize",trackierSDKConfig);
 		}
 		catch(System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
-	public static void setUserName(string userName){
+
+	public static void initialize(TrackierConfig config) 
+	{
+		try {
+			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+			AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
+			AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig", context, config.appToken, config.environment);
+			trackierSDKConfig.Call("setSDKVersion", "1.6.30");
+			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
+			if (config.hasDeferredDeeplinkCallback == true)
+			{
+				DeferredDeeplinkListener deeplink = new DeferredDeeplinkListener(config.deferredDeeplinkDelegate);
+				trackierSDKConfig.Call("setDeepLinkListener", deeplink);
+			}
+			trackierSDK.CallStatic("initialize", trackierSDKConfig);
+		}
+		catch (System.Exception e) {
+			Debug.Log("System.Exception: " + e.Message);
+		}
+	}
+
+	private class DeferredDeeplinkListener : AndroidJavaProxy 
+	{
+		private Action<string> callback;
+		
+		public DeferredDeeplinkListener(Action<string> pCallback) : base("com.trackier.sdk.DeepLinkListener") 
+		{
+			this.callback = pCallback;
+		}
+
+		public void onDeepLinking(AndroidJavaObject deeplink) 
+		{
+			string deeplinkURL = deeplink.Call<string>("getUrl");
+			callback(deeplinkURL);
+		}
+	}
+		
+	public static void setUserName(string userName)
+	{
 		try {
 			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
@@ -33,7 +74,9 @@ public class TrackierAndroid
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
-	public static void setUserPhone(string userPhone){
+
+	public static void setUserPhone(string userPhone)
+	{
 		try {
 			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
@@ -44,7 +87,9 @@ public class TrackierAndroid
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
-	public static void TrackEvent(TrackierEvent te) {
+
+	public static void TrackEvent(TrackierEvent te) 
+	{
 		try {
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
 			AndroidJavaObject TrackEventClass = new AndroidJavaObject("com.trackier.sdk.TrackierEvent",te.EventId);
