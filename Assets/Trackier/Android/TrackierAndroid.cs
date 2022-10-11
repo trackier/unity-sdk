@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +16,7 @@ public class TrackierAndroid
 			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 			AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
 			AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig",context,appToken,environment);
-			trackierSDKConfig.Call("setSDKVersion","1.6.30");
+			trackierSDKConfig.Call("setSDKVersion", "1.6.30");
 			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
 			trackierSDK.CallStatic("initialize",trackierSDKConfig);
 		}
@@ -35,10 +35,11 @@ public class TrackierAndroid
 			AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig", context, config.appToken, config.environment);
 			trackierSDKConfig.Call("setSDKVersion", "1.6.30");
 			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
-
-			// TODO: wrap this in an if-check
-			DeferredDeeplinkListener deeplink = new DeferredDeeplinkListener(config.deferredDeeplinkDelegate);
-			trackierSDKConfig.Call("setDeepLinkListener", deeplink);
+			if (config.hasDeferredDeeplinkCallback == true)
+			{
+				DeferredDeeplinkListener deeplink = new DeferredDeeplinkListener(config.deferredDeeplinkDelegate);
+				trackierSDKConfig.Call("setDeepLinkListener", deeplink);
+			}
 			trackierSDK.CallStatic("initialize", trackierSDKConfig);
 		}
 		catch (System.Exception e) {
@@ -57,7 +58,7 @@ public class TrackierAndroid
 
 		public void onDeepLinking(AndroidJavaObject deeplink) 
 		{
-			string deeplinkURL = deeplink.Call<string>("getURL");
+			string deeplinkURL = deeplink.Call<string>("getUrl");
 			callback(deeplinkURL);
 		}
 	}

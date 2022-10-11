@@ -4,28 +4,30 @@ using System.Diagnostics;
 
 namespace com.trackier.sdk
 {
-    public class TrackierConfig
-    {
-        internal Action<string> deferredDeeplinkDelegate;
-        internal string appToken;
-        internal string environment;
+	public class TrackierConfig
+	{
+		internal Action<string> deferredDeeplinkDelegate;
+		internal bool hasDeferredDeeplinkCallback;
+		internal string appToken;
+		internal string environment;
 
-        public TrackierConfig(String appToken, String environment)
-        {
-            this.appToken = appToken;
-            this.environment = environment;
-        }
+		public TrackierConfig(String appToken, String environment)
+		{
+			this.appToken = appToken;
+			this.environment = environment;
+		}
 
-        public void setDeferredDeeplinkDelegate(Action<string> deferredDeeplinkDelegate)
-        {
-            this.deferredDeeplinkDelegate = deferredDeeplinkDelegate;
-        }
+		public void setDeferredDeeplinkDelegate(Action<string> deferredDeeplinkDelegate)
+		{
+			this.hasDeferredDeeplinkCallback = true;
+			this.deferredDeeplinkDelegate = deferredDeeplinkDelegate;
+		}
 
-        public Action<string> getDeferredDeeplinkDelegate()
-        {
-            UnityEngine.Debug.Log("getDeferredDeeplinkDelegate()");
-            return this.deferredDeeplinkDelegate;
-        }
-    }
+		public Action<string> getDeferredDeeplinkDelegate()
+		{
+			UnityEngine.Debug.Log("getDeferredDeeplinkDelegate()");
+			return this.deferredDeeplinkDelegate;
+		}
+	}
 }
 
