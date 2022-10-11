@@ -286,7 +286,7 @@ trackierEvent.ev = eventCustomParams;
 TrackierUnity.TrackEvent(trackierEvent);
 	
 ```
- # Deeplinking 
+ ### <a id="qs-deeplink"></a>Deeplinking 
 
 Deep linking is a techniques in which the user directly redirect to the specific pages of the application by click on the deeplink url.
 
