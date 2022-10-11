@@ -28,37 +28,37 @@ public class TrackierAndroid
 	public static void initialize(TrackierConfig config) 
 	{
 		DeferredDeeplinkListener deeplink;
-        try {
-        	AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-            AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-            AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-            AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
-            AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig", context, config.appToken, config.environment);
+		try {
+			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+			AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
+			AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig", context, config.appToken, config.environment);
 			trackierSDKConfig.Call("setSDKVersion","1.6.30");
-            deeplink = new DeferredDeeplinkListener(config.deferredDeeplinkDelegate);
-            trackierSDKConfig.Call("setDeepLinkListener", deeplink);
-            trackierSDK.CallStatic("initialize", trackierSDKConfig);
-        }
-        catch (System.Exception e) {
-            Debug.Log("System.Exception: " + e.Message);
-        }
-    }
+			deeplink = new DeferredDeeplinkListener(config.deferredDeeplinkDelegate);
+			trackierSDKConfig.Call("setDeepLinkListener", deeplink);
+			trackierSDK.CallStatic("initialize", trackierSDKConfig);
+		}
+		catch (System.Exception e) {
+			Debug.Log("System.Exception: " + e.Message);
+		}
+	}
 
 	private class DeferredDeeplinkListener : AndroidJavaProxy 
 	{
-        private Action<string> callback;
+		private Action<string> callback;
 		
-        public DeferredDeeplinkListener(Action<string> pCallback) : base("com.trackier.sdk.DeepLinkListener") 
+		public DeferredDeeplinkListener(Action<string> pCallback) : base("com.trackier.sdk.DeepLinkListener") 
 		{
-            this.callback = pCallback;
-        }
+			this.callback = pCallback;
+		}
 
-        public void onDeepLinking(AndroidJavaObject deeplink) 
+		public void onDeepLinking(AndroidJavaObject deeplink) 
 		{
-            string deeplinkURL = deeplink.Call<string>("getURL");
-            callback(deeplinkURL);
-        }
-    }
+			string deeplinkURL = deeplink.Call<string>("getURL");
+			callback(deeplinkURL);
+		}
+	}
 		
 	public static void setUserName(string userName)
 	{
