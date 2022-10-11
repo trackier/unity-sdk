@@ -31,18 +31,18 @@ namespace com.trackier.sdk
 		}
 
 		public static void initialize(TrackierConfig config)
-        {
-        	if (IsEditor())
-            {
-                return;
-            }
+		{
+			if (IsEditor())
+			{
+				return;
+			}
 
 			#if UNITY_ANDROID
 
-            TrackierAndroid.initialize(config);
+			TrackierAndroid.initialize(config);
 
 			#endif
-        }
+		}
 
 		public static void setUserName(string userName)
 		{
