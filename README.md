@@ -6,7 +6,6 @@
 
 - [Quick start guide](#qs-add-trackier-sdk)
   - [Add Unity SDK to your app ](#qs-add-sdk)
-  - [Update Pod Dependencies](#qs-pod-update)
 - [Integrate and Initialize the Trackier SDK](#qs-implement-trackier-sdk)
   - [Retrieve your SDK key](#qs-retrieve-dev-key)
   - [Initialize the SDK](#qs-initialize-trackier-sdk)
@@ -16,7 +15,7 @@
   - [Customs Events](#qs-customs-events)
   - [Revenue Event Tracking](#qs-track-event-with-currencey)
   - [Pass the custom params in events](#qs-add-custom-parms-event)
-  - [Passing User Data to SDK](#qs-add-user-data) 
+- [Deeplinking](#qs-deeplink) 
 
 ## <a id="qs-add-trackier-sdk"></a>Quick start guide
 
@@ -287,6 +286,102 @@ trackierEvent.ev = eventCustomParams;
 TrackierUnity.TrackEvent(trackierEvent);
 	
 ```
- 
+ ### <a id="qs-deeplink"></a>Deeplinking 
 
- 
+Deep linking is a techniques in which the user directly redirect to the specific pages of the application by click on the deeplink url.
+
+There are two types deeplinking
+
+* ***Normal deeplinking*** - Direct deep linking occurs when a user already has your app installed on their device. When this is the case, the deep link will redirect the user to the screen specified in the link.
+
+* ***Deferred deeplinking*** - Deferred deep linking occurs when a user does not have your app installed on their device. When this is the case, the deep link will first send the user to the device app store to install the app. Once the user has installed and opened the app, the SDK will redirect them to the screen specified in the link.
+
+Please check below the Deeplinking scenario 
+
+<img width="705" alt="Screenshot 2022-06-22 at 10 48 20 PM" src="https://user-images.githubusercontent.com/16884982/175099075-349910ce-ce7b-4a71-868c-11c34c4331cd.png">
+
+
+### Normal Deep linking
+
+If a user already has your app on their device, it will open when they interact with a tracker containing a deep link. You can then parse the deep link information for further use. To do this, you need to choose a desired unique scheme name.
+
+You can set up a specific activity to launch when a user interacts with a deep link. To do this:
+
+* Assign the unique scheme name to the activity in your AndroidManifest.xml file.
+* Add the intent-filter section to the activity definition.
+* Assign an android:scheme property value with your preferred scheme name.
+
+For example, you could set up an activity called FirstActivity to open like this:
+#### AndroidManifest.xml 
+
+```
+
+        <activity
+            android:name=".Activity.FirstProduct"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data
+                android:host="trackier.u9ilnk.me"
+                android:pathPrefix="/product"
+                android:scheme="https" />
+        </intent-filter>
+        </activity>
+
+```
+
+```
+https://trackier.u9ilnk.me/product?dlv=FirstProduct&quantity=10&pid=sms
+```
+
+
+### Deferred deep linking
+
+Deferred deep linking happened, when a user does not have your app installed on their device. When the user clicks a trackier URL, the URL will redirect them to the Play Store to download and install your app. When the user opens the app for the first time, the SDK will read the deeplink content.
+
+For get deeplink content information, set a callback method on the TrackierConfig object. This will receive the parameters where the content of the URL is delivered. Set this method on the config object by calling the method setDeferredDeeplinkDelegate:
+
+Below are the example of the code :-
+
+```c#
+using UnityEngine;
+using System.Collections;
+using com.trackier.sdk;
+using System;
+
+public class NewMonoBehaviour : MonoBehaviour
+{
+	// Use this for initialization
+	void Start()
+	{
+        TrackierConfig trackierConfig = new TrackierConfig("abcf2270-xxxxxxxxxx-34903c6e1d53", "development");
+        trackierConfig.setDeferredDeeplinkDelegate(DeferredDeeplinkCallback); // Pass for setting the deferred deeplinking 
+        TrackierUnity.initialize(trackierConfig);
+        Debug.Log("AppKey Initialized");
+
+    }
+
+	// Update is called once per frame
+	void Update()
+	{
+			
+	}
+
+    private void DeferredDeeplinkCallback(string deeplinkURL)
+    {
+        Debug.Log("Deferred deeplink reported!");
+
+        if (deeplinkURL != null)
+        {
+            Debug.Log("Deeplink URL: " + deeplinkURL); // Getting the deeplink url.
+        }
+        else
+        {
+            Debug.Log("Deeplink URL is null!");
+        }
+    }
+}
+
+``` 
