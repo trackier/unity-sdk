@@ -23,6 +23,8 @@ public class TrackierEvent
 	public string param9 = null;
 	public string param10 = null;
 	public string couponCode = null;
+	public float discount = 0;
+	public float revenue = 0;
 	public IDictionary<string, object> eventValues = null;
 
 	public static string LEVEL_ACHIEVED = "1CFfUn3xEY";
