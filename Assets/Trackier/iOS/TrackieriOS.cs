@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace com.trackier.sdk
 {
-#if UNITY_IOS
 	public class TrackieriOS
 	{
 #if UNITY_IOS
@@ -122,5 +121,4 @@ namespace com.trackier.sdk
 		}
 
 	}
-#endif
 }
