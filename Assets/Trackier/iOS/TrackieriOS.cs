@@ -8,9 +8,9 @@ using UnityEngine;
 
 namespace com.trackier.sdk
 {
+#if UNITY_IOS
 	public class TrackieriOS
 	{
-#if UNITY_IOS
 		[DllImport("__Internal")]
 		private static extern void TrackierSDK_initialize(string appToken, string env);
 
@@ -74,7 +74,6 @@ namespace com.trackier.sdk
 		[DllImport("__Internal")]
 		private static extern void TrackierSDK_param10(string param10);
 
-#endif
 		public static void initialize(TrackierConfig config)
 		{
 			TrackierSDK_initialize(config.appToken,config.environment);
@@ -121,4 +120,6 @@ namespace com.trackier.sdk
 		}
 
 	}
+#endif
 }
+
