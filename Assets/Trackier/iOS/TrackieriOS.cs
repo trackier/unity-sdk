@@ -27,7 +27,7 @@ namespace com.trackier.sdk
 		private static extern void TrackierSDK_setUserName(string userName);
 
 		[DllImport("__Internal")]
-		private static extern void TrackierSDK_TrackEvent(string eventId);
+		private static extern void TrackierSDK_TrackEvent(string eventId, string jsonInfo);
 
 		public static void initialize(TrackierConfig config)
 		{
