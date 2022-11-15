@@ -10,19 +10,19 @@ public class TrackierEvent
 	{
 		this.EventId = EventId;
 	}
-	public string orderId = null;
-	public string currency = null;
-	public string param1 = null;
-	public string param2 = null;
-	public string param3 = null;
-	public string param4 = null;
-	public string param5 = null;
-	public string param6 = null;
-	public string param7 = null;
-	public string param8 = null;
-	public string param9 = null;
-	public string param10 = null;
-	public string couponCode = null;
+	public string orderId = "";
+	public string currency = "";
+	public string param1 = "";
+	public string param2 = "";
+	public string param3 = "";
+	public string param4 = "";
+	public string param5 = "";
+	public string param6 = "";
+	public string param7 = "";
+	public string param8 = "";
+	public string param9 = "";
+	public string param10 = "";
+	public string couponCode = "";
 	public float discount = 0;
 	public float revenue = 0;
 	public IDictionary<string, object> eventValues = null;

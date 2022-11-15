@@ -29,51 +29,6 @@ namespace com.trackier.sdk
 		[DllImport("__Internal")]
 		private static extern void TrackierSDK_TrackEvent(string eventId);
 
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_couponCode(string couponCode);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_orderId(string orderId);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_discount(float discount);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_currency(string currency);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_revenue(float revenue);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param1(string param1);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param2(string param2);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param3(string param3);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param4(string param4);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param5(string param5);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param6(string param6);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param7(string param7);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param8(string param8);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param9(string param9);
-
-		[DllImport("__Internal")]
-		private static extern void TrackierSDK_param10(string param10);
-
 		public static void initialize(TrackierConfig config)
 		{
 			TrackierSDK_initialize(config.appToken,config.environment);
@@ -99,24 +54,26 @@ namespace com.trackier.sdk
 			TrackierSDK_setUserName(userName);
 		}
 
-		public static void TrackEvent(TrackierEvent eventId)
+		public static void TrackEvent(TrackierEvent ev)
 		{
-			TrackierSDK_couponCode(eventId.couponCode);
-			TrackierSDK_orderId(eventId.orderId);
-			TrackierSDK_discount(eventId.discount);
-			TrackierSDK_currency(eventId.currency);
-			TrackierSDK_revenue(eventId.revenue);
-			TrackierSDK_param1(eventId.param1);
-			TrackierSDK_param2(eventId.param2);
-			TrackierSDK_param3(eventId.param3);
-			TrackierSDK_param4(eventId.param4);
-			TrackierSDK_param5(eventId.param5);
-			TrackierSDK_param6(eventId.param6);
-			TrackierSDK_param7(eventId.param7);
-			TrackierSDK_param8(eventId.param8);
-			TrackierSDK_param9(eventId.param9);
-			TrackierSDK_param10(eventId.param10);
-			TrackierSDK_TrackEvent(eventId.EventId);
+			Dictionary<string, string> eventParams = new Dictionary<string, string>();
+			eventParams.Add("orderId", ev.orderId);
+			eventParams.Add("discount", Convert.ToString(ev.discount));
+			eventParams.Add("revenue", Convert.ToString(ev.revenue));
+			eventParams.Add("couponCode", ev.couponCode);
+			eventParams.Add("currency", ev.currency);
+			eventParams.Add("param1", ev.param1);
+			eventParams.Add("param2", ev.param2);
+			eventParams.Add("param3", ev.param3);
+			eventParams.Add("param4", ev.param4);
+			eventParams.Add("param5", ev.param5);
+			eventParams.Add("param6", ev.param6);
+			eventParams.Add("param7", ev.param7);
+			eventParams.Add("param8", ev.param8);
+			eventParams.Add("param9", ev.param9);
+			eventParams.Add("param10", ev.param10);
+			string jsonString = JsonConvert.SerializeObject(eventParams, Formatting.Indented);
+			TrackierSDK_TrackEvent(ev.EventId, jsonString);
 		}
 
 	}
