@@ -96,7 +96,7 @@ public class TrackierAndroid
 			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
 			trackierSDK.CallStatic("setUserEmail",userEmail);  
 		}
-		catch(System.Exception e){
+		catch(System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
@@ -109,7 +109,7 @@ public class TrackierAndroid
 			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
 			trackierSDK.CallStatic("setUserId",userId);  
 		}
-		catch(System.Exception e){
+		catch(System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}

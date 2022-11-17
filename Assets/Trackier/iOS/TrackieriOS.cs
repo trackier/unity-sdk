@@ -12,7 +12,7 @@ namespace com.trackier.sdk
 	public class TrackieriOS
 	{
 		[DllImport("__Internal")]
-		private static extern void TrackierSDK_initialize(string appToken, string env);
+		private static extern void TrackierSDK_initialize(string jsonInfo);
 
 		[DllImport("__Internal")]
 		private static extern void TrackierSDK_setUserId(string userID);
@@ -31,7 +31,13 @@ namespace com.trackier.sdk
 
 		public static void initialize(TrackierConfig config)
 		{
-			TrackierSDK_initialize(config.appToken,config.environment);
+			Dictionary<string, string> initData = new Dictionary<string, string>();
+			initData.Add("appKey", config.appToken);
+			initData.Add("env", config.environment);
+			initData.Add("setSDKVersion", "1.6.30");
+			initData.Add("setSDKType", "unity_ios_sdk");
+			string jsonString = JsonConvert.SerializeObject(initData, Formatting.Indented);
+			TrackierSDK_initialize(jsonString);
 		}
 
 		public static void setUserID(string userId)
