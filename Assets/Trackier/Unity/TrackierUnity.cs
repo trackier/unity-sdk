@@ -129,11 +129,9 @@ public class TrackierUnity : MonoBehaviour
 
 		return TrackierAndroid.getAdID();
 	}
-
 #endif
 
 #if UNITY_ANDROID
-
 	public static string getAdSet()
 	{
 		if (IsEditor())
@@ -190,7 +188,6 @@ public class TrackierUnity : MonoBehaviour
 		}
 		return TrackierAndroid.getChannel();
 	}
-
 #endif
 
 #if UNITY_ANDROID
@@ -202,7 +199,6 @@ public class TrackierUnity : MonoBehaviour
 		}
 		return TrackierAndroid.getDlv();
 	}
-
 #endif
 
 #if UNITY_ANDROID
@@ -214,7 +210,6 @@ public class TrackierUnity : MonoBehaviour
 		}
 		return TrackierAndroid.getPid();
 	}
-
 #endif
 
 #if UNITY_ANDROID
@@ -226,7 +221,6 @@ public class TrackierUnity : MonoBehaviour
 		}
 		return TrackierAndroid.getP1();
 	}
-
 #endif
 
 #if UNITY_ANDROID
@@ -250,7 +244,6 @@ public class TrackierUnity : MonoBehaviour
 		}
 		return TrackierAndroid.getP3();
 	}
-
 #endif
 
 #if UNITY_ANDROID
@@ -274,7 +267,6 @@ public class TrackierUnity : MonoBehaviour
 		return TrackierAndroid.getP5();
 	}
 #endif
-
 
 #if UNITY_ANDROID
 	public static string getClickId()
@@ -308,6 +300,7 @@ public class TrackierUnity : MonoBehaviour
 #if UNITY_ANDROID
 		TrackierAndroid.TrackEvent(te);
 #endif
+		
 #if UNITY_IOS
 		TrackieriOS.TrackEvent(te);
 #endif

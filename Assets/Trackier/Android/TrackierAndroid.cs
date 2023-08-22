@@ -33,7 +33,7 @@ public class TrackierAndroid
 			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 			AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
 			AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig", context, config.appToken, config.environment);
-			trackierSDKConfig.Call("setSDKVersion", "1.6.33");
+			trackierSDKConfig.Call("setSDKVersion", "1.6.46");
 			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
 			if (config.hasDeferredDeeplinkCallback == true)
 			{
@@ -115,117 +115,117 @@ public class TrackierAndroid
 	}
 
 	public static string getAd()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getAd");
-	return data;
-}
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getAd");
+		return data;
+	}
 
-public static string getAdID()
-{
+	public static string getAdID()
+	{
 		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
 		string data = androidClass.CallStatic<string>("getAdID");
 		return data;
-}
+	}
 
-public static string getAdSet()
-{
+	public static string getAdSet()
+	{
 		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
 		string data = androidClass.CallStatic<string>("getAdSet");
 		return data;
-}
+	}
 
-public static string getAdSetID()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getAdSetID");
-	return data;
-}
+	public static string getAdSetID()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getAdSetID");
+		return data;
+	}
 
-public static string getCampaign()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getCampaign");
-	return data;
-}
+	public static string getCampaign()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getCampaign");
+		return data;
+	}
 
-public static string getCampaignID()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getCampaignID");
-	return data;
-}
+	public static string getCampaignID()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getCampaignID");
+		return data;
+	}
 
-public static string getChannel()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getChannel");
-	return data;
-}
+	public static string getChannel()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getChannel");
+		return data;
+	}
 
-public static string getP1()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getP1");
-	return data;
-}
+	public static string getP1()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getP1");
+		return data;
+	}
 
-public static string getP2()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getP2");
-	return data;
-}
+	public static string getP2()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getP2");
+		return data;
+	}
 
-public static string getP3()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getP2");
-	return data;
-}
+	public static string getP3()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getP3");
+		return data;
+	}
 
-public static string getP4()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getP2");
-	return data;
-}
+	public static string getP4()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getP4");
+		return data;
+	}
 
-public static string getP5()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getP2");
-	return data;
-}
+	public static string getP5()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getP5");
+		return data;
+	}
 
-public static string getClickId()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getClickId");
-	return data;
-}
+	public static string getClickId()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getClickId");
+		return data;
+	}
 
-public static string getDlv()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getDlv");
-	return data;
-}
+	public static string getDlv()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getDlv");
+		return data;
+	}
 
-public static string getPid()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getPid");
-	return data;
-}
+	public static string getPid()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getPid");
+		return data;
+	}
 
 
-public static string getIsRetargeting()
-{
-	AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-	string data = androidClass.CallStatic<string>("getIsRetargeting");
-	return data;
-}
+	public static string getIsRetargeting()
+	{
+		AndroidJavaObject androidClass = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+		string data = androidClass.CallStatic<string>("getIsRetargeting");
+		return data;
+	}
 
 	public static void TrackEvent(TrackierEvent te) 
 	{
