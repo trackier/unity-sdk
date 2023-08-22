@@ -66,7 +66,9 @@ public class TrackierAndroid
 	public static void setUserName(string userName)
 	{
 		try {
-			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");   
+			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
 			trackierSDK.CallStatic("setUserName",userName);  
 		} catch(System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
@@ -76,7 +78,9 @@ public class TrackierAndroid
 	public static void setUserPhone(string userPhone)
 	{
 		try {
-			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");   
+			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
 			trackierSDK.CallStatic("setUserPhone",userPhone);  
 		}
 		catch(System.Exception e){
@@ -87,7 +91,9 @@ public class TrackierAndroid
 	public static void setUserEmail(string userEmail)
 	{
 		try {
-			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");	   
+			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
 			trackierSDK.CallStatic("setUserEmail",userEmail);  
 		}
 		catch(System.Exception e) {
@@ -98,7 +104,9 @@ public class TrackierAndroid
 	public static void setUserId(string userId)
 	{
 		try {
-			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");	   
+			AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
 			trackierSDK.CallStatic("setUserId",userId);  
 		}
 		catch(System.Exception e) {
