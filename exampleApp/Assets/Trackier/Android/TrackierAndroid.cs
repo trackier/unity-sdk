@@ -20,7 +20,7 @@ public static void Start(string appToken, string environment)
 		trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
 		trackierSDK.CallStatic("initialize",trackierSDKConfig);
 	}
-	catch(System.Exception e) {
+	catch (System.Exception e) {
 		Debug.Log("System.Exception: "+e.Message);
 	}
 }
@@ -66,11 +66,9 @@ private class DeferredDeeplinkListener : AndroidJavaProxy
 public static void setUserName(string userName)
 {
 	try {
-		AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-		AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-		AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
+		AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");	   
 		trackierSDK.CallStatic("setUserName",userName);  
-	} catch(System.Exception e) {
+	} catch (System.Exception e) {
 		Debug.Log("System.Exception: "+e.Message);
 	}
 }
@@ -78,12 +76,10 @@ public static void setUserName(string userName)
 public static void setUserPhone(string userPhone)
 {
 	try {
-		AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-		AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-		AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
+		AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");	   
 		trackierSDK.CallStatic("setUserPhone",userPhone);  
 	}
-	catch(System.Exception e){
+	catch (System.Exception e){
 		Debug.Log("System.Exception: "+e.Message);
 	}
 }
@@ -91,12 +87,10 @@ public static void setUserPhone(string userPhone)
 public static void setUserEmail(string userEmail)
 {
 	try {
-		AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-		AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-		AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
+		AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");	   
 		trackierSDK.CallStatic("setUserEmail",userEmail);  
 	}
-	catch(System.Exception e) {
+	catch (System.Exception e) {
 		Debug.Log("System.Exception: "+e.Message);
 	}
 }
@@ -104,12 +98,10 @@ public static void setUserEmail(string userEmail)
 public static void setUserId(string userId)
 {
 	try {
-		AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-		AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
-		AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");	   
+		AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");	   
 		trackierSDK.CallStatic("setUserId",userId);  
 	}
-	catch(System.Exception e) {
+	catch (System.Exception e) {
 		Debug.Log("System.Exception: "+e.Message);
 	}
 }
