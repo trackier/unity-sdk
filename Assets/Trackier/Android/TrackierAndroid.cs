@@ -20,7 +20,7 @@ public class TrackierAndroid
 			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
 			trackierSDK.CallStatic("initialize",trackierSDKConfig);
 		}
-		catch(System.Exception e) {
+		catch (System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
@@ -68,7 +68,7 @@ public class TrackierAndroid
 		try {
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");   
 			trackierSDK.CallStatic("setUserName",userName);  
-		} catch(System.Exception e) {
+		} catch (System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
@@ -79,7 +79,7 @@ public class TrackierAndroid
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");   
 			trackierSDK.CallStatic("setUserPhone",userPhone);  
 		}
-		catch(System.Exception e){
+		catch (System.Exception e){
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
@@ -90,7 +90,7 @@ public class TrackierAndroid
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");	   
 			trackierSDK.CallStatic("setUserEmail",userEmail);  
 		}
-		catch(System.Exception e) {
+		catch (System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
@@ -101,7 +101,7 @@ public class TrackierAndroid
 			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");	   
 			trackierSDK.CallStatic("setUserId",userId);  
 		}
-		catch(System.Exception e) {
+		catch (System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
 		}
 	}
