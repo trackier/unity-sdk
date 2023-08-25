@@ -34,7 +34,7 @@ namespace com.trackier.sdk
 			Dictionary<string, string> initData = new Dictionary<string, string>();
 			initData.Add("appKey", config.appToken);
 			initData.Add("env", config.environment);
-			initData.Add("setSDKVersion", "1.6.33");
+			initData.Add("setSDKVersion", "1.6.46");
 			initData.Add("setSDKType", "unity_ios_sdk");
 			string jsonString = JsonConvert.SerializeObject(initData, Formatting.Indented);
 			TrackierSDK_initialize(jsonString);

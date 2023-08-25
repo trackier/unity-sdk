@@ -8,9 +8,14 @@ public class mainScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TrackierUnity.start("XXXX-d94a-4364-XXX-XXXX");
-        TrackierUnity.setUserName("DUMMY");
-        TrackierUnity.setUserPhone("123456");
+        TrackierConfig trackierConfig = new TrackierConfig("e69b921c-xxxx-4419-xxxx-5a9678abffea", "development");
+        //TrackierUnity.setUserName("sanu");
+        TrackierUnity.setUserPhone("828282782");
+        TrackierUnity.setUserEmail("sanu@gmail.com");
+        TrackierUnity.setUserId("jhd897439");
+        string s = TrackierUnity.getAd();
+        TrackierUnity.setUserName(s);
+        TrackierUnity.initialize(trackierConfig);
 
         /* Event Track */
         TrackierEvent trackierEvent = new TrackierEvent(TrackierEvent.PURCHASE);
