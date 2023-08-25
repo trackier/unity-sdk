@@ -30,7 +30,7 @@ Unity SDK is very easy to integrate in your app. Just need to follow some steps
 To integrate the Trackier SDK into your Unity project, follow these steps.
 
 Get the SDK
-As of version 1.0.1 you can download the latest version from our [releases page](https://github.com/trackier/unity-sdk/releases).
+As of version 1.6.46 you can download the latest version from our [releases page](https://github.com/trackier/unity-sdk/releases).
 
 Add the SDK to your project
 Open your project in the Unity Editor, go to Assets → Import Package → Custom Package and select the downloaded Unity package file.
