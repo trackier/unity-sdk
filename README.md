@@ -15,7 +15,8 @@
   - [Customs Events](#qs-customs-events)
   - [Revenue Event Tracking](#qs-track-event-with-currencey)
   - [Pass the custom params in events](#qs-add-custom-parms-event)
-- [Deeplinking](#qs-deeplink) 
+- [Deeplinking](#qs-deeplink)
+- [Getting Campaign Data](#qs-getting-campaign)
 
 ## <a id="qs-add-trackier-sdk"></a>Quick start guide
 
@@ -384,4 +385,28 @@ public class NewMonoBehaviour : MonoBehaviour
     }
 }
 
-``` 
+```
+
+### <a id="qs-getting-campaign"></a>Getting Campaign Data
+For getting the campaign data, We have a function that return the campaign data. Please check below the example code.
+
+```c#
+	TrackierEvent trackierEvent = new TrackierEvent(TrackierEvent.PURCHASE);
+	string ad = TrackierUnity.getAd();
+	string adID = TrackierUnity.getAdID();
+	string adSet = TrackierUnity.getAdSet();
+	string adSetID = TrackierUnity.getAdSetID();
+	string campaign = TrackierUnity.getCampaign();
+	string campaignID = TrackierUnity.getCampaignID();
+	string channel = TrackierUnity.getChannel();
+	string clickId = TrackierUnity.getClickId();
+	string p1 = TrackierUnity.getP1();
+	string p2 = TrackierUnity.getP2();
+	string p3 = TrackierUnity.getP3();
+	string p4 = TrackierUnity.getP4();
+	string p5 = TrackierUnity.getP5();
+	string dlv = TrackierUnity.getDlv();
+	string pid = TrackierUnity.getPid();
+	string retargetting = TrackierUnity.getIsRetargeting();
+	TrackierUnity.TrackEvent(trackierEvent);
+```
