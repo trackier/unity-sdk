@@ -33,7 +33,7 @@ public class TrackierAndroid
 			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 			AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
 			AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig", context, config.appToken, config.environment);
-			trackierSDKConfig.Call("setSDKVersion", "1.6.46");
+			trackierSDKConfig.Call("setSDKVersion", "1.6.48");
 			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
 			if (config.hasDeferredDeeplinkCallback == true)
 			{
@@ -103,6 +103,32 @@ public class TrackierAndroid
 		}
 		catch (System.Exception e) {
 			Debug.Log("System.Exception: "+e.Message);
+		}
+	}
+
+	public static void setDOB(string dob)
+	{
+		try
+		{
+			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+			trackierSDK.CallStatic("setDOB", dob);
+		}
+		catch (System.Exception e)
+		{
+			Debug.Log("System.Exception: " + e.Message);
+		}
+	}
+
+	public static void setGender(string gender)
+	{
+		try
+		{
+			AndroidJavaObject trackierSDK = new AndroidJavaObject("com.trackier.sdk.TrackierSDK");
+			trackierSDK.CallStatic("setGender", gender);
+		}
+		catch (System.Exception e)
+		{
+			Debug.Log("System.Exception: " + e.Message);
 		}
 	}
 

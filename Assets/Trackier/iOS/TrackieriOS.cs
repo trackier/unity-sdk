@@ -29,12 +29,18 @@ namespace com.trackier.sdk
 		[DllImport("__Internal")]
 		private static extern void TrackierSDK_TrackEvent(string eventId, string jsonInfo);
 
+		[DllImport("__Internal")]
+		private static extern void TrackierSDK_setDOB(string dob);
+
+		[DllImport("__Internal")]
+		private static extern void TrackierSDK_setGender(string gender);
+
 		public static void initialize(TrackierConfig config)
 		{
 			Dictionary<string, string> initData = new Dictionary<string, string>();
 			initData.Add("appKey", config.appToken);
 			initData.Add("env", config.environment);
-			initData.Add("setSDKVersion", "1.6.46");
+			initData.Add("setSDKVersion", "1.6.48");
 			initData.Add("setSDKType", "unity_ios_sdk");
 			string jsonString = JsonConvert.SerializeObject(initData, Formatting.Indented);
 			TrackierSDK_initialize(jsonString);
@@ -58,6 +64,16 @@ namespace com.trackier.sdk
 		public static void setUserName(string userName)
 		{
 			TrackierSDK_setUserName(userName);
+		}
+
+		public static void setDOB(string dob)
+		{
+			TrackierSDK_setDOB(dob);
+		}
+
+		public static void setGender(string gender)
+		{
+			TrackierSDK_setGender(gender);
 		}
 
 		public static void TrackEvent(TrackierEvent ev)

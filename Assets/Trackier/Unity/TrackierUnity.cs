@@ -106,6 +106,36 @@ public class TrackierUnity : MonoBehaviour
 #endif
 	}
 
+	public static void setDOB(string dob)
+	{
+		if (IsEditor())
+		{
+			return;
+		}
+
+#if UNITY_ANDROID
+            TrackierAndroid.setDOB(dob);
+#endif
+#if UNITY_IOS
+		    TrackieriOS.setDOB(dob);
+#endif
+		}
+
+	public static void setGender(string gender)
+	{
+		if (IsEditor())
+		{
+			return;
+		}
+
+#if UNITY_ANDROID
+            TrackierAndroid.setGender(gender);
+#endif
+#if UNITY_IOS
+		    TrackieriOS.setGender(gender);
+#endif
+		}
+
 #if UNITY_ANDROID
 	public static string getAd()
 	{
