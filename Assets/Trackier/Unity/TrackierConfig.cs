@@ -21,6 +21,12 @@ namespace com.trackier.sdk
 			this.environment = environment;
 		}
 
+		public void setAppSecret(String secretId, String secretKey)
+		{
+			this.secretId = secretId;
+			this.secretKey = secretKey;
+		}
+
 		public void setManualMode(Boolean manualMode)
 		{
 			this.manualMode = manualMode;
