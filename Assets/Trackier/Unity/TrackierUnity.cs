@@ -136,6 +136,31 @@ public class TrackierUnity : MonoBehaviour
 #endif
 		}
 
+
+		public static void parseDeepLink(string deeplink)
+		{
+			if (IsEditor())
+			{
+				return;
+			}
+
+#if UNITY_ANDROID
+            TrackierAndroid.parseDeepLink(deeplink);
+#endif
+		}
+
+		public static void fireInstall()
+		{
+			if (IsEditor())
+			{
+				return;
+			}
+
+#if UNITY_ANDROID
+            TrackierAndroid.fireInstall();
+#endif
+		}
+
 #if UNITY_ANDROID
 	public static string getAd()
 	{
