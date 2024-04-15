@@ -10,11 +10,31 @@ namespace com.trackier.sdk
 		internal bool hasDeferredDeeplinkCallback;
 		internal string appToken;
 		internal string environment;
+		internal string secretId;
+		internal string secretKey;
+		internal bool manualMode;
+		internal bool disableOrgnaic;
 
 		public TrackierConfig(String appToken, String environment)
 		{
 			this.appToken = appToken;
 			this.environment = environment;
+		}
+
+		public void setAppSecret(String secretId, String secretKey)
+		{
+			this.secretId = secretId;
+			this.secretKey = secretKey;
+		}
+
+		public void setManualMode(Boolean manualMode)
+		{
+			this.manualMode = manualMode;
+		}
+
+		public void disableOrganicTracking(Boolean disableOrgnaic)
+		{
+			this.disableOrgnaic = disableOrgnaic;
 		}
 
 		public void setDeferredDeeplinkDelegate(Action<string> deferredDeeplinkDelegate)
