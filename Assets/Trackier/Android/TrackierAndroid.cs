@@ -16,7 +16,7 @@ public class TrackierAndroid
 			AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 			AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
 			AndroidJavaObject trackierSDKConfig = new AndroidJavaObject("com.trackier.sdk.TrackierSDKConfig",context,appToken,environment);
-			trackierSDKConfig.Call("setSDKVersion", "1.6.46");
+			trackierSDKConfig.Call("setSDKVersion", "1.6.57");
 			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
 			trackierSDK.CallStatic("initialize",trackierSDKConfig);
 		}
@@ -36,7 +36,7 @@ public class TrackierAndroid
 			trackierSDKConfig.Call("setAppSecret", config.secretId, config.secretKey);
 			trackierSDKConfig.Call("setManualMode", config.manualMode);
 			trackierSDKConfig.Call("disableOrganicTracking", config.disableOrgnaic);
-			trackierSDKConfig.Call("setSDKVersion", "1.6.56");
+			trackierSDKConfig.Call("setSDKVersion", "1.6.57");
 			trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
 			if (config.hasDeferredDeeplinkCallback == true)
 			{
