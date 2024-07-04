@@ -86,7 +86,9 @@ namespace com.sampleapp
             you need to pass the Trackier SDK api key in the argument */
 
             /* Initialize SDK */
-            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+		TrackierConfig trackierConfig = new TrackierConfig("e69b921c-bbe8-xxxx-xxxx-5a9678abffea", "development"); //Pass SDK key and environment
+		trackierConfig.setAppSecret("6419510xxxxxxxa686cf1", "MzgwYWMwOTQt6xxxxxxxxxxxxxxtZTk3MTMwNTMzMjQ5");
+		TrackierUnity.initialize(trackierConfig);
         }
 
         // Update is called once per frame
@@ -142,7 +144,9 @@ Screenshot[3]
             you need to pass the Trackier SDK api key in the argument */
 
             /* Initialize SDK */
-            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+             TrackierConfig trackierConfig = new TrackierConfig("e69b921c-bbe8-xxxx-xxxx-5a9678abffea", "development"); //Pass SDK key and environment
+             trackierConfig.setAppSecret("6419510xxxxxxxa686cf1", "MzgwYWMwOTQt6xxxxxxxxxxxxxxtZTk3MTMwNTMzMjQ5");
+             TrackierUnity.initialize(trackierConfig);
 
             /* Event Track */
              /*
@@ -203,7 +207,9 @@ Screenshot[5]
             you need to pass the Trackier SDK api key in the argument */
 
             /* Initialize SDK */
-            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+             TrackierConfig trackierConfig = new TrackierConfig("e69b921c-bbe8-xxxx-xxxx-5a9678abffea", "development"); //Pass SDK key and environment
+             trackierConfig.setAppSecret("6419510xxxxxxxa686cf1", "MzgwYWMwOTQt6xxxxxxxxxxxxxxtZTk3MTMwNTMzMjQ5");
+	     TrackierUnity.initialize(trackierConfig);
 
             /* Event Track */
              /*
@@ -249,7 +255,9 @@ Trackier allow user to pass the revenue data which is generated from the app thr
             you need to pass the Trackier SDK api key in the argument */
 
             /* Initialize SDK */
-            TrackierUnity.start("xxxx-xx-4505-bc8b-xx");
+             TrackierConfig trackierConfig = new TrackierConfig("e69b921c-bbe8-xxxx-xxxx-5a9678abffea", "development"); //Pass SDK key and environment
+             trackierConfig.setAppSecret("6419510xxxxxxxa686cf1", "MzgwYWMwOTQt6xxxxxxxxxxxxxxtZTk3MTMwNTMzMjQ5");
+             TrackierUnity.initialize(trackierConfig);
 
             /* Event Track */
              /*
