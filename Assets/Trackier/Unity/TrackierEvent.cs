@@ -23,7 +23,7 @@ public class TrackierEvent
 	public string param9 = "";
 	public string param10 = "";
 	public string couponCode = "";
-	public float discount = 0;
+	public double discount = 0;
 	public float revenue = 0;
 	public IDictionary<string, object> eventValues = null;
 
