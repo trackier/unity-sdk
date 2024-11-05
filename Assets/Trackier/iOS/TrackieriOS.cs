@@ -88,11 +88,9 @@ namespace com.trackier.sdk
 
         public static string getTrackierId()
         {
-        
             IntPtr trackierIdPtr = TrackierSDK_getTrackierId();
             string trackierId = Marshal.PtrToStringAuto(trackierIdPtr)?.ToLower();
             return trackierId;
-        
         }
 
         public static void TrackEvent(TrackierEvent ev)
