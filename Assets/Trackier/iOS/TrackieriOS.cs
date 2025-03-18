@@ -46,7 +46,9 @@ namespace com.trackier.sdk
             Dictionary<string, string> initData = new Dictionary<string, string>();
             initData.Add("appKey", config.appToken);
             initData.Add("env", config.environment);
-            initData.Add("setSDKVersion", "1.6.60");
+            initData.Add("secretId", config.secretId);
+            initData.Add("secretKey", config.secretKey);
+            initData.Add("setSDKVersion", "1.6.64");
             initData.Add("setSDKType", "unity_ios_sdk");
             if (config.hasDeferredDeeplinkCallback == true)
             {
@@ -88,9 +90,11 @@ namespace com.trackier.sdk
 
         public static string getTrackierId()
         {
+        
             IntPtr trackierIdPtr = TrackierSDK_getTrackierId();
             string trackierId = Marshal.PtrToStringAuto(trackierIdPtr)?.ToLower();
             return trackierId;
+        
         }
 
         public static void TrackEvent(TrackierEvent ev)
