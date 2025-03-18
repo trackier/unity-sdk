@@ -41,8 +41,34 @@ namespace com.trackier.sdk
                 trackierSDKConfig.Call("setAppSecret", config.secretId, config.secretKey);
                 trackierSDKConfig.Call("setManualMode", config.manualMode);
                 trackierSDKConfig.Call("disableOrganicTracking", config.disableOrgnaic);
-                trackierSDKConfig.Call("setSDKVersion", "1.6.60");
+                trackierSDKConfig.Call("setSDKVersion", "1.6.64");
                 trackierSDKConfig.Call("setSDKType", "unity_android_sdk");
+                if (config.attributionParams != null && config.attributionParams.Count > 0)
+                {
+                    AndroidJavaObject attributionParams = new AndroidJavaObject("com.trackier.sdk.AttributionParams");
+
+                    if (config.attributionParams.ContainsKey("partnerId"))
+                        attributionParams.Set("parterId", config.attributionParams["partnerId"]);
+
+                    if (config.attributionParams.ContainsKey("siteId"))
+                        attributionParams.Set("siteId", config.attributionParams["siteId"]);
+
+                    if (config.attributionParams.ContainsKey("subSiteID"))
+                        attributionParams.Set("subSiteID", config.attributionParams["subSiteID"]);
+
+                    if (config.attributionParams.ContainsKey("channel"))
+                        attributionParams.Set("channel", config.attributionParams["channel"]);
+
+                    if (config.attributionParams.ContainsKey("ad"))
+                        attributionParams.Set("ad", config.attributionParams["ad"]);
+
+                    if (config.attributionParams.ContainsKey("adId"))
+                        attributionParams.Set("adId", config.attributionParams["adId"]);
+
+                    trackierSDKConfig.Call("setAttributionParams", attributionParams);
+                }
+
+
                 if (config.hasDeferredDeeplinkCallback == true)
                 {
                     DeferredDeeplinkListener deeplink = new DeferredDeeplinkListener(config.deferredDeeplinkDelegate);

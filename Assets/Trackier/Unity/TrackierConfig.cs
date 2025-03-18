@@ -1,6 +1,5 @@
-using UnityEngine;
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace com.trackier.sdk
 {
@@ -14,6 +13,8 @@ namespace com.trackier.sdk
 		internal string secretKey;
 		internal bool manualMode;
 		internal bool disableOrgnaic;
+		internal Dictionary<string, string> attributionParams = new Dictionary<string, string>();
+
 
 		public TrackierConfig(String appToken, String environment)
 		{
@@ -48,6 +49,22 @@ namespace com.trackier.sdk
 			UnityEngine.Debug.Log("getDeferredDeeplinkDelegate()");
 			return this.deferredDeeplinkDelegate;
 		}
+
+		public void setAttributionParams(Dictionary<string, string> paramsDict)
+		{
+			if (paramsDict == null) return;
+
+			foreach (var kvp in paramsDict)
+			{
+				this.attributionParams[kvp.Key] = kvp.Value; 
+			}
+		}
+
+		public void setAttributionParam(string key, string value)
+		{
+			attributionParams[key] = value;
+		}
+
 	}
 }
 
